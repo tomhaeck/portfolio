@@ -8,6 +8,17 @@
             border: 1px solid blue;
             padding: 1rem;
         }
+        p.project-category {
+            color: darkgreen;
+            background-color: darkgrey;
+
+            font-family: monospace;
+            font-size: 1.2rem;
+
+            display: inline;
+            border-radius: 0.5rem;
+            padding: 0.2rem;
+        }
         img {
             width: 20vw;
         }
@@ -27,6 +38,7 @@
     </div>
 
     <h1>{{ project.title }}</h1>
+    <p class="project-category">{{ project.category }}</p>
     <p>{{ project.description }}</p>
 
     <div>
