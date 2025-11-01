@@ -3,10 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ project.title }}</title>
+    <style>
+        div.project {
+            border: 1px solid blue;
+            padding: 1rem;
+        }
+        img {
+            width: 20vw;
+        }
+        img.project-image {
+            width: 10vw;
+        }
+    </style>
 </head>
 <body>
 
-<h1>{{ project.title }}</h1>
+<div class="project">
+
+    <div>
+        {% if project.cover_image %}
+            <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
+        {% endif %}
+    </div>
+
+    <h1>{{ project.title }}</h1>
+    <p>{{ project.description }}</p>
+
+    <div>
+        {% for img in project.images.all %}
+            <img src="{{ img.image.url }}" alt="" class="project-image">
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'all_projects' %}">Go to home page.</a>
+
+</div>
 
 </body>
 </html>

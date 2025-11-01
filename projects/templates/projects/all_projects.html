@@ -21,7 +21,7 @@
         <h1>{{ project.title }}</h1>
         <p>{{ project.description }}</p>
 
-        <div class="cover-image">
+        <div>
         {% if project.cover_image %}
             <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
         {% endif %}
