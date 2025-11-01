@@ -1,6 +1,17 @@
 from django.contrib import admin
 
-from projects.models import Project
+from projects.models import Project, ProjectImage
 
-# Register your models here.
-admin.site.register(Project)
+class ProjectImageInline(admin.TabularInline):
+    model = ProjectImage
+    fields = ("image",)
+
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ("title", "created_at", "updated_at")
+    search_fields = ("title", "description")
+    inlines = [ProjectImageInline]
+
+
+
