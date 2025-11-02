@@ -1,4 +1,4 @@
- d{% extends 'projects/base.html' %}
+{% extends 'projects/base.html' %}
 
 {% block content %}
 
@@ -14,9 +14,10 @@
                      alt="{{ project.title }}">
             {% endif %}
             <div class="card-body">
-                <h5 class="card-title">{{ project.title }} <span class="badge text-bg-primary">{{ project.category }}</span></h5>
+                <p><span class="badge text-bg-success">{{ project.category }}</span></p>
+                <h5 class="card-title">{{ project.title }}</h5>
                 <p class="card-text">{{ project.description }}</p>
-                <a href="{% url 'project_detail' project.id %}" class="btn btn-outline-secondary">Go to project page.</a>
+                <a href="{% url 'project_detail' project.id %}" class="btn btn-secondary">Details</a>
             </div>
         </div>
     </div>
