@@ -1,47 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Projects</title>
-    <style>
-        div.project {
-            border: 1px solid blue;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        p.project-category {
-            color: darkgreen;
-            background-color: darkgrey;
+{% extends 'projects/base.html' %}
 
-            font-family: monospace;
-            font-size: 1.2rem;
+{% block content %}
 
-            display: inline;
-            border-radius: 0.5rem;
-            padding: 0.2rem;
-        }
-        img {
-            width: 20vw;
-        }
-    </style>
-</head>
-<body>
-
+<div class="row g-3">
 {% for project in projects %}
-    <div class="project">
-        <h1>{{ project.title }}</h1>
-        <p class="project-category">{{ project.category }}</p>
-        <p>{{ project.description }}</p>
-
-        <div>
-        {% if project.cover_image %}
-            <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
-        {% endif %}
+    <div class="col-md-4 d-flex">
+        <div class="card h-100">
+            {% if project.cover_image %}
+                <img class="card-img-top" src="{{ project.cover_image.url }}" alt="{{ project.title }}">
+            {% else %}
+                <img class="card-img-top"
+                     src="https://dummyimage.com/400x600/ccc/fff.png&text=Not+available"
+                     alt="{{ project.title }}">
+            {% endif %}
+            <div class="card-body">
+                <p><span class="badge text-bg-success">{{ project.category }}</span></p>
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <a href="{% url 'project_detail' project.id %}" class="btn btn-secondary">Details</a>
+            </div>
         </div>
-
-        <a href="{% url 'project_detail' project.id %}">Go to project page.</a>
     </div>
 {% endfor %}
+</div>
 
-</body>
-</html>
+{% endblock %}

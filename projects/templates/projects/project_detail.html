@@ -1,55 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ project.title }}</title>
-    <style>
-        div.project {
-            border: 1px solid blue;
-            padding: 1rem;
-        }
-        p.project-category {
-            color: darkgreen;
-            background-color: darkgrey;
+{% extends "projects/base.html" %}
 
-            font-family: monospace;
-            font-size: 1.2rem;
-
-            display: inline;
-            border-radius: 0.5rem;
-            padding: 0.2rem;
-        }
-        img {
-            width: 20vw;
-        }
-        img.project-image {
-            width: 10vw;
-        }
-    </style>
-</head>
-<body>
-
-<div class="project">
-
-    <div>
-        {% if project.cover_image %}
-            <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
-        {% endif %}
+{% block content %}
+    <div class="row mb-3">
+        <div class="col-md-3">
+            {% if project.cover_image %}
+                <img class="img-thumbnail"
+                     src="{{ project.cover_image.url }}"
+                     alt="{{ project.title }}">
+            {% else %}
+                <img class="img-fluid"
+                     src="https://dummyimage.com/400x600/ccc/fff.png&text=Not+available"
+                     alt="{{ project.title }}">
+            {% endif %}
+        </div>
+        <div class="col-md-9">
+            <p class="badge text-bg-success">{{ project.category }}</p>
+            <h2>{{ project.title }}</h2>
+            <p>{{ project.description }}</p>
+        </div>
     </div>
-
-    <h1>{{ project.title }}</h1>
-    <p class="project-category">{{ project.category }}</p>
-    <p>{{ project.description }}</p>
-
-    <div>
+    <div class="row justify-content-center mb-3">
         {% for img in project.images.all %}
-            <img src="{{ img.image.url }}" alt="" class="project-image">
+            <div class="col-2">
+                <img class="img-thumbnail" src="{{ img.image.url }}" alt="">
+            </div>
         {% endfor %}
     </div>
 
-    <a href="{% url 'all_projects' %}">Go to home page.</a>
-
-</div>
-
-</body>
-</html>
+{% endblock %}
