@@ -14,9 +14,16 @@
                      alt="{{ project.title }}">
             {% endif %}
             <div class="card-body">
-                <p><span class="badge text-bg-success">{{ project.category }}</span></p>
+                <p>
+                    {% for category in project.categories.all %}
+                    <span class="badge" style="
+                        background-color: {{ category.color }};
+                        color: #ffffff;">
+                    {{ category.name }}</span>
+                    {% endfor %}
+                </p>
                 <h5 class="card-title">{{ project.title }}</h5>
-                <p class="card-text">{{ project.description }}</p>
+                <p class="card-text">{{ project.description|truncatechars:250|safe  }}</p>
                 <a href="{% url 'project_detail' project.id %}" class="btn btn-secondary">Details</a>
             </div>
         </div>
