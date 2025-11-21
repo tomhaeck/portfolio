@@ -14,9 +14,16 @@
             {% endif %}
         </div>
         <div class="col-md-9">
-            <p class="badge text-bg-success">{{ project.category }}</p>
+            <p>
+                {% for category in project.categories.all %}
+                <span class="badge" style="
+                    background-color: {{ category.color }};
+                    color: #ffffff;">
+                {{ category.name }}</span>
+                {% endfor %}
+            </p>
             <h2>{{ project.title }}</h2>
-            <p>{{ project.description }}</p>
+            <p>{{ project.description|safe }}</p>
         </div>
     </div>
     <div class="row justify-content-center mb-3">
