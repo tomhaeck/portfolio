@@ -5,6 +5,8 @@ class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
 
+    color = models.CharField(max_length=7, help_text="Color hex code of the project, e.g. #abcdef")
+
     def __str__(self):
         return self.name
 
@@ -18,11 +20,10 @@ class Project(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    category = models.ForeignKey(Category,
-                                 related_name="projects",
-                                 on_delete=models.SET_NULL,
-                                 null=True,
-                                 blank=True)
+    categories = models.ManyToManyField(Category,
+                                        related_name="projects",
+                                        null=True,
+                                        blank=True)
 
     class Meta:
         ordering = ["-created_at"]
