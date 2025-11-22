@@ -6,6 +6,7 @@ on:
 
 env:
   IMAGE_NAME: ghcr.io/tomhaeck/portfolio:latest
+  CONTAINER_NAME: portfolio
 
 jobs:
   build-and-push-to-github-registry:
@@ -47,7 +48,7 @@ jobs:
           set -euxo pipefail
 
           IMAGE_NAME="${IMAGE_NAME}"
-          CONTAINER_NAME="portfolio"
+          CONTAINER_NAME="${CONTAINER_NAME}"
           
           docker stop "$CONTAINER_NAME" 2>/dev/null || true
           docker rm "$CONTAINER_NAME" 2>/dev/null || true
