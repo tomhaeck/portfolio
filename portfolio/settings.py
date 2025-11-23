@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
-    "ec2-52-30-165-141.eu-west-1.compute.amazonaws.com",
+    "ec2-52-19-162-155.eu-west-1.compute.amazonaws.com",
 ]
 
 
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db' / 'db.sqlite3',
     }
 }
 
