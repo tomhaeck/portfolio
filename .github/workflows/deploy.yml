@@ -55,12 +55,17 @@ jobs:
           IMAGE_NAME="${IMAGE_NAME}"
           CONTAINER_NAME="${CONTAINER_NAME}"
           
+          mkdir -p /home/ubuntu/portfolio/db
+          mkdir -p /home/ubuntu/portfolio/media
+          
           docker stop "$CONTAINER_NAME" 2>/dev/null || true
           docker rm "$CONTAINER_NAME" 2>/dev/null || true
 
           docker run -d \
             --name "$CONTAINER_NAME" \
             -p 80:8000 \
+            -v /home/ubuntu/portfolio/db:/app/db \
+            -v /home/ubuntu/portfolio/media:/app/media \
             "${IMAGE_NAME}:${IMAGE_TAG}"
           
           docker exec "$CONTAINER_NAME" python manage.py migrate --noinput
