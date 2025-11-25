@@ -1,6 +1,8 @@
 .venv/
 .idea/
 
+media/
+
 *.pyc
 .python-version
 *.sqlite3
