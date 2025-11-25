@@ -41,6 +41,9 @@ jobs:
     needs: build-and-push-to-github-registry
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Configure SSH
         run: |
           mkdir ~/.ssh
