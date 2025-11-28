@@ -1,0 +1,93 @@
+{% extends "projects/base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <div class="about-me">
+        <p class="text-center lead">Father of two young children, software developer, mountain biker, climber. The last
+            two let me be outside and enjoy a bit of adventure, from the comfort of "my backyard".
+            I try to play a bit of chess as well. It must be said that all of these activities are done at a very
+            modest level, to put it mildly. But that's okay...</p>
+        <div>
+            <img src="{% static 'projects/images/tom-avatar.png' %}"
+                 alt="Photo of Tom Haeck"
+                 style="border-radius: 50%; display: block; width: 20%; margin-inline: auto;">
+        </div>
+
+        <div class="about-me-block">
+            <h5>From "script kiddo" to software developer</h5>
+
+            <p>Back during my PhD, I worked as an image algorithm engineer - if that's even a
+                thing? I was all about image segmentation, image registration, image classification, etc. My knowledge
+                in that area is very much out-of-date now, but it is what I grew up with, and you never really lose
+                your affinity for the things you started out with.</p>
+
+            <p>During that same time, I was a bit of a "script kiddo". I wrote single, long Python modules that would
+                read images or videos from a folder, run the script manually, and then I'd happily paste the results
+                into whatever document or PowerPoint they were needed in. For the last couple of years, though,
+                I've been getting the hang of being a software developer. Python is still at the core as a very
+                powerful programming language, but you can add a database, build a web front-end for your application,
+                schedule processing jobs, deploy with Docker, or see what clever service AWS has up its sleeve to make
+                your life easier.</p>
+
+            <p>And you know what's cool about this? You can really build tangible things for people. It is a bit like
+                being a shoemaker or a plumber - it's a craft where you make something real that someone can actually use.
+                It's practical. You get to serve people.</p>
+
+            <p>An added bonus is that you get handed for free some really nice ways of working: version control and
+                collaborating with Git, making sure you fail fast - and especially loud -, breaking projects into
+                bite-sized tasks and actually tracking them, adding a "definition of done" to each one, and so on.
+                Who wouldn't want to apply those principles to everything they do? I am still trying to implement them
+                in our household, but I've run into a bit of resistance from the wifey though.</p>
+        </div>
+
+        <div class="about-me-block">
+            <h5>Soooo.... what is this?</h5>
+
+            <p>On this website, I will post about tech projects I tinker with in the evenings or on weekends.
+                Most of them are software, but I am also curious about electronics or even robotics. The projects might
+                be things that seem useful to me, cool to build, ideas I heard from someone, or came across
+                on Instagram,... We'll see where it all grows from here.</p>
+
+            <p>One of the software developer principles I came across is: 'build in the open'. I am shy about what I do and about
+                the progress I make. As an introvert, this won't change. But hiding in the dark does not feel incredibly
+                productive. So this website is also about 'building in the open'.</p>
+
+            <p>Also, there is this spectrum between consuming and producing. When I'm lying on the couch, scrolling through
+                Instagram, I am in the extreme end of consuming things that countless people have spent countless hours
+                producing. I don't aim to create anything remarkable, but I do feel obliged to at least shift myself
+                a bit in the consuming-producing spectrum. This is my way of giving myself a kick off the couch.</p>
+        </div>
+
+        <div class="about-me-block">
+            <h5>To AI or not to AI?</h5>
+            <p>AI can do it better. AI can generate all this. That is a fair critique. These are hobby projects.
+                They're meant to be fun, meant to teach me something, meant to give me that cosy
+                feeling you get when you create and finish something and feel that little spike of endorphins telling
+                you: 'you did good'. Yes, AI can do everything. But that doesn't mean we mustn't do anything anymore.</p>
+
+            <p>So, what is the role of AI then here? Microsoft's AI product "CoPilot"'s name is very aptly chosen.
+                I really like the word. AI helps, suggests, fixes, .... It is you and the copilot together in the
+                cockpit, two brains side by side. I could hand over more control to AI, and let it optimize everything
+                and polish every detail. But that's not the goal here.  There are mistakes everywhere
+                - grammar slips, rough edges, imperfect tech design choices.
+                These are projects made by a suboptimal human with limited background and limited brain power.
+                But that's okay. Even better, when I need to choose between watching a game of chess between two AI
+                agents or two humans, I would always pick the latter.</p>
+
+            <p>Let's build...!</p>
+        </div>
+
+        <div class="about-me-block">
+            <figure>
+                <blockquote class="blockquote fst-italic text-center">
+                    <p>“Motivation is not the cause of action, it is the result.
+                        You want to be motivated? Get up and go do something.”</p>
+                </blockquote>
+                <figcaption class="text-end blockquote-footer">
+                    Mark Manson
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+{% endblock %}
