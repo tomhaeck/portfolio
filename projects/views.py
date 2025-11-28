@@ -15,3 +15,7 @@ def all_projects(request):
 def project_detail(request, id):
     project = get_object_or_404(Project, id=id)
     return render(request, "projects/project_detail.html", {"project":project})
+
+
+def about_me(request):
+    return render(request, "projects/about_me.html")

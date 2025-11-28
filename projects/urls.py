@@ -7,4 +7,5 @@ from projects import views
 urlpatterns = ([
     path("", views.all_projects, name="all_projects"),
     path("<int:id>/", views.project_detail, name="project_detail"),
+    path("about-me/", views.about_me, name="about_me"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

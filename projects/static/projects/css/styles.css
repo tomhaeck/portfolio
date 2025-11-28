@@ -1,0 +1,18 @@
+.about-me {
+    text-align: justify;
+    line-height: 2.0rem;
+
+    width: 80%;
+    margin-top: 3rem;
+    margin-inline: auto;
+
+}
+
+.about-me-block {
+    line-height: 1.6rem;
+
+    border: 1px solid var(--bs-dark);
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 1rem;
+}
