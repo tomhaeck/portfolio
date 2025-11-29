@@ -5,7 +5,7 @@ from projects.models import Project
 
 # Create your views here.
 def all_projects(request):
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by("-created_at")
     if contains:=request.GET.get("contains"):
         projects = projects.filter(Q(title__icontains=contains) | Q(description__icontains=contains))
 
