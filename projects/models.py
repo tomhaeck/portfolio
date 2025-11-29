@@ -16,6 +16,8 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
 
+    in_progress = models.BooleanField(default=False)
+
     cover_image = models.ImageField(upload_to="projects/covers/", blank=True, null=True)
 
     created_at = models.DateTimeField(default=timezone.now)
