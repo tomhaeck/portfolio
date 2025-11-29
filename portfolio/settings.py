@@ -30,6 +30,11 @@ ALLOWED_HOSTS = [
     "www.tomhaeck.com",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://tomhaeck.com",
+    "https://www.tomhaeck.com",
+]
+
 
 # Application definition
 
