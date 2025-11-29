@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Category(models.Model):
@@ -17,7 +18,7 @@ class Project(models.Model):
 
     cover_image = models.ImageField(upload_to="projects/covers/", blank=True, null=True)
 
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     categories = models.ManyToManyField(Category,

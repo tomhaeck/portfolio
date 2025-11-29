@@ -14,6 +14,7 @@
                      alt="{{ project.title }}">
             {% endif %}
             <div class="card-body">
+                <p class="text-secondary"><small>{{ project.created_at|date:"M Y" }}</small></p>
                 <p>
                     {% for category in project.categories.all %}
                     <span class="badge" style="
