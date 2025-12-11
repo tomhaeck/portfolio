@@ -1,11 +1,33 @@
 {% extends 'projects/base.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <div class="row g-3">
+
+<div class="col-md-4 d-flex">
+    <div class="card w-100 h-100 shadow">
+        <div class="card-body">
+            <p class="card-text">
+                <img src="{% static 'projects/images/tom-avatar.png' %}"
+                 alt="Photo of Tom Haeck"
+                 style="border-radius: 50%; display: block; width: 40%; margin-inline: auto;">
+            </p>
+            <p class="card-text">
+                Father of two young children, software developer, mountain biker, climber.
+                I try to play a bit of chess as well.</p>
+            <p class="card-text">
+                Let me show you some of the tech projects I work on in my free time...
+            </p>
+            <a href="{% url 'about_me' %}" class="btn btn-secondary">About me</a>
+        </div>
+    </div>
+</div>
+
 {% for project in projects %}
     <div class="col-md-4 d-flex">
-        <div class="card h-100 shadow">
+        <div class="card w-100 h-100 shadow">
             {% if project.cover_image %}
                 <img class="card-img-top mb-3 {% if project.in_progress %}in-progress-img{% endif %}"
                      src="{{ project.cover_image.url }}" alt="{{ project.title }}">
