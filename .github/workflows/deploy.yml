@@ -65,6 +65,8 @@ jobs:
          
           IMAGE_NAME="${IMAGE_NAME}"
           CONTAINER_NAME="${CONTAINER_NAME}"
+          
+          docker image prune -af || true
          
           docker pull ${IMAGE_NAME}:${IMAGE_TAG}
          
