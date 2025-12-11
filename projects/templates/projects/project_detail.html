@@ -26,12 +26,19 @@
             <p>{{ project.description|safe }}</p>
         </div>
     </div>
-    <div class="row justify-content-center mb-3">
-        {% for img in project.images.all %}
-            <div class="col-2">
-                <img class="img-thumbnail" src="{{ img.image.url }}" alt="">
-            </div>
-        {% endfor %}
+    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for img in project.images.all %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %} text-center">
+                    <img src="{{ img.image.url }}" class="carousel-img img-thumbnail" alt="">
+                </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
     </div>
-
 {% endblock %}
